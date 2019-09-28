@@ -1,0 +1,46 @@
+.root{
+	-fx-background-color: #2a2e37;
+	-fx-font-family: Montserrat;
+	-fx-font-weight: bold;
+}
+
+.label1{
+	-fx-background-color: #343945;	
+	-fx-font-size: 20pt;
+	-fx-padding: 0 5 0 0;
+}
+
+.label2{
+	-fx-font-size: 17pt;
+	-fx-padding: 0 5 0 0;
+}
+
+.label3:hover{
+	-fx-background-color: #d30000;
+}
+
+.label4:hover{
+	-fx-background-color: #5C616B;
+}
+
+.button{
+	-fx-font-size: 14pt;
+}
+
+.buttons1{
+	-fx-background-color: #626061;
+	-fx-text-fill: #ffffff;
+	-fx-background-radius: 5;
+}
+.buttons1:hover{
+	-fx-background-color: #9897a9;
+}
+
+.buttons2{
+	-fx-background-color: #FA8E1D;
+	-fx-text-fill: #ffffff;
+	-fx-background-radius: 5;
+}
+.buttons2:hover{
+	-fx-background-color: #ff2b00;
+}
