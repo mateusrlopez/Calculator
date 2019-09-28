@@ -13,8 +13,7 @@ public class InputHandler {
 			if(newTxt.matches("([\\-])?")) {
 				lb1.setText("0");
 				isOverridible = true;
-			} else 
-				lb1.setText(newTxt);
+			} else lb1.setText(newTxt);
 		} else Toolkit.getDefaultToolkit().beep();
 	}
 	
@@ -22,7 +21,7 @@ public class InputHandler {
 		if(txt.matches("\\d*")) {
 			if(isOverridible) {
 				lb1.setText(txt);
-				isOverridible = false;
+				if(!txt.equals("0")) isOverridible = false;
 				if(OperationHandler.specialOperationInProgress) {
 					clearSpecialOperation(lb2);
 					OperationHandler.specialOperationInProgress = false;

@@ -71,7 +71,6 @@ public class MainViewController implements Initializable{
 		Constraints.setLabelMaxLength(lb1,20);
 		Constraints.setLabelResizable(lb1);
 		Constraints.setLabelNonNull(lb1);
-		btEqual.setDefaultButton(true);
 		InputHandler.isOverridible = true;
 	}
 	

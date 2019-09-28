@@ -21,7 +21,7 @@ public class Main extends Application {
 			controller.stageSetters(stage,scene);
 			stage.initStyle(StageStyle.UNDECORATED);
 			stage.setTitle("Calculadora");
-			stage.getIcons().add(new Image("file:Calculadora.png"));
+			stage.getIcons().add(new Image("/view/images/Calculadora.png"));
 			stage.setResizable(false);
 			stage.setScene(scene);
 			stage.show();

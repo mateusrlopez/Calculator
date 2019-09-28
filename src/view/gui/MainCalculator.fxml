@@ -61,7 +61,7 @@
                   <Button fx:id="btN6" focusTraversable="false" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="62.0" prefWidth="92.0" styleClass="buttons1" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <Button fx:id="btCube" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="84.0" prefWidth="125.0" styleClass="buttons2" text="x³" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                   <Button fx:id="btNegate" focusTraversable="false" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="88.0" prefWidth="134.0" styleClass="buttons1" text="±" GridPane.rowIndex="4" />
-                  <Button fx:id="btClear" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="209.0" prefWidth="59.0" styleClass="buttons2" text="C" GridPane.columnIndex="2" />
+                  <Button fx:id="btClear" focusTraversable="false" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="209.0" prefWidth="59.0" styleClass="buttons2" text="C" GridPane.columnIndex="2" />
                   <Button fx:id="btSubt" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="44.0" prefWidth="59.2" styleClass="buttons2" text="-" GridPane.columnIndex="4" GridPane.rowIndex="3" />
                </children>
             </GridPane>
@@ -84,7 +84,7 @@
                <children>
                   <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Calculadora.png" />
+                        <Image url="@../images/Calculadora.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="74.0" text="Calculadora" textFill="#c2c2c2">
