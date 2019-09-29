@@ -12,6 +12,6 @@ public interface Constants {
 	KeyCombination MOD_COMB = new KeyCodeCombination(KeyCode.DIGIT5,KeyCodeCombination.SHIFT_DOWN);
 	KeyCombination SQRT_COMB = new KeyCodeCombination(KeyCode.DIGIT2,KeyCodeCombination.SHIFT_DOWN);
 	Function<String,String> BCKSP_FUNC = p -> new StringBuilder(p).deleteCharAt(p.length()-1).toString();
-	String REGEX1 = "(\\-)?\\d*([\\.]\\d*)?([A-Z](\\-)?\\d*)?";
+	String REGEX1 = "(\\-)?\\d*([\\.]\\d*)?([E](\\-)?\\d*)?";
 	String REGEX2 = "(\\d*)?(\\.)?";
 }

@@ -53,14 +53,14 @@ public class OperationHandler {
 					lastOperand = lb2.getText().split(" ")[lb2.getText().split(" ").length-2].charAt(0);
 					lb2.setText(lb2.getText() + String.format(" %s",op));
 					result = OperationHandler.processOperation(result + lastOperand + temporaryResult);
-					lb1.setText(String.format("%s",(result.toString().length() > 20)? result.substring(0,20):result));
+					lb1.setText(String.format("%s",result));
 					InputHandler.isOverridible = true;
 					specialOperationInProgress = false;
 				} else if (operationInProgress && !InputHandler.isOverridible) {
 					lastOperand = lb2.getText().charAt(lb2.getText().length() - 1);
 					lb2.setText(lb2.getText() + String.format(" %s %s", currentOperand, op));
 					result = OperationHandler.processOperation(result + lastOperand + currentOperand);
-					lb1.setText(String.format("%s",(result.toString().length() > 20)? result.substring(0,20):result));
+					lb1.setText(String.format("%s",result));
 					InputHandler.isOverridible = true;
 				} else {
 					lb2.setText(lb2.getText() + String.format(" %s %s", currentOperand, op));
@@ -91,7 +91,7 @@ public class OperationHandler {
 					result = processOperation(result + lastOperand + temporaryResult).toString();
 				}
 				lb2.setText("");
-				lb1.setText(String.format("%s",(result.toString().length() > 20)? result.toString().substring(0,20):result));
+				lb1.setText(String.format("%s",result));
 				InputHandler.isOverridible = true;
 				operationInProgress = false;
 				specialOperationInProgress = false;
@@ -108,9 +108,22 @@ public class OperationHandler {
 		ScriptEngineManager manager = new ScriptEngineManager();
 		ScriptEngine engine = manager.getEngineByName("javascript");
 		Object result = engine.eval(operation);
+		System.out.println(result);
 		if (!result.toString().matches(Constants.REGEX1))
 			throw new OperationException("Operação inválida");
-		return result.toString();
+		return handleResultString(result.toString());
+	}
+	
+	private static String handleResultString(String result) {
+		if(result.length() > 20) {
+			if(result.matches("(\\-)?\\d*[\\.]\\d*[E](\\-)?\\d*?")) {
+				int i = result.indexOf("E");
+				String exponentialPart = result.substring(i);
+				result = result.substring(0,20-exponentialPart.length()) + exponentialPart;
+			}
+			else result = result.substring(0,20);
+		}
+		return result;
 	}
 	
 	private static void handleSpecialOperation(Label lb1, Label lb2, String operation) {

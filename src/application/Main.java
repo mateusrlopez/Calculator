@@ -18,12 +18,12 @@ public class Main extends Application {
 			Parent parent = (Parent)loader.load();
 			Scene scene = new Scene(parent);
 			MainViewController controller = (MainViewController) loader.getController();
-			controller.stageSetters(stage,scene);
+			stage.setScene(scene);
+			controller.stageSetters(stage,scene);			
 			stage.initStyle(StageStyle.UNDECORATED);
 			stage.setTitle("Calculadora");
 			stage.getIcons().add(new Image("/view/images/Calculadora.png"));
 			stage.setResizable(false);
-			stage.setScene(scene);
 			stage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
