@@ -108,7 +108,6 @@ public class OperationHandler {
 		ScriptEngineManager manager = new ScriptEngineManager();
 		ScriptEngine engine = manager.getEngineByName("javascript");
 		Object result = engine.eval(operation);
-		System.out.println(result);
 		if (!result.toString().matches(Constants.REGEX1))
 			throw new OperationException("Operação inválida");
 		return handleResultString(result.toString());
@@ -123,25 +122,25 @@ public class OperationHandler {
 			}
 			else result = result.substring(0,20);
 		}
+		if(result.matches("\\d*[\\.][0]")) result = result.substring(0,result.length()-2);
 		return result;
 	}
 	
 	private static void handleSpecialOperation(Label lb1, Label lb2, String operation) {
-		if(temporaryResult.matches("\\d*[\\.][0]")) temporaryResult = temporaryResult.substring(0,temporaryResult.length()-2);
 		if(!specialOperationInProgress) {
 			lb2.setText(lb2.getText() + String.format(" %s(%s)",operation,lb1.getText()));
 			InputHandler.isOverridible = true;
 			specialOperationInProgress = true;
-		} else lb2.setText(handleMultipleSpecialOperations(lb2,operation));
-		lb1.setText((temporaryResult.length() > 20) ? temporaryResult.substring(0,20) : temporaryResult);
+		} else handleMultipleSpecialOperations(lb2,operation);
+		lb1.setText(temporaryResult);
 	}
 	
-	private static String handleMultipleSpecialOperations(Label label, String s) {
+	private static void handleMultipleSpecialOperations(Label label, String s) {
 		String txt = label.getText().split(" ")[label.getText().split(" ").length - 1];
 		StringBuilder sb = new StringBuilder(label.getText());
 		int index = sb.lastIndexOf(" ");
 		sb.delete(index,sb.length());
 		sb.append(String.format(" %s(%s)",s,txt));
-		return sb.toString();
+		label.setText(sb.toString());
 	}
 }

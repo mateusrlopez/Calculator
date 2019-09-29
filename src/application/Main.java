@@ -23,7 +23,6 @@ public class Main extends Application {
 			stage.initStyle(StageStyle.UNDECORATED);
 			stage.setTitle("Calculadora");
 			stage.getIcons().add(new Image("/view/images/Calculadora.png"));
-			stage.setResizable(false);
 			stage.show();
 		} catch (IOException e) {
 			e.printStackTrace();

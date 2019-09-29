@@ -23,9 +23,6 @@ import model.utils.OperationHandler;
 import view.gui.utils.Constraints;
 
 public class MainViewController implements Initializable{	
-	@FXML private Stage stage;
-	@FXML private Scene scene;	
-	
 	@FXML private AnchorPane anchorPane;
 	@FXML private HBox hbox;
 	
@@ -124,7 +121,7 @@ public class MainViewController implements Initializable{
 					break;
 			} 
 		} else {
-			if(eventBT.getText().matches("[C](\\w*)?")) {
+			if(eventBT.getText().matches("[C]([I])?")) {
 				lb3.setText("");
 				lb2.setText("");
 				lb1.setText("0");
