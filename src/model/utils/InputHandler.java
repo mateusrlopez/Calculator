@@ -4,12 +4,12 @@ import java.awt.Toolkit;
 
 import javafx.scene.control.Label;
 
-public class InputHandler {
+public class InputHandler implements Constants {
 	public static boolean isOverridible;
 	
 	public static void handleBackspace(Label lb1) {
 		if(lb1.getText().length() > 0 && !isOverridible) {
-			String newTxt = Constants.BCKSP_FUNC.apply(lb1.getText());
+			String newTxt = BCKSP_FUNC.apply(lb1.getText());
 			if(newTxt.matches("([\\-])?")) {
 				lb1.setText("0");
 				isOverridible = true;

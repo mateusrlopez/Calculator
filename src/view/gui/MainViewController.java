@@ -22,7 +22,7 @@ import model.utils.InputHandler;
 import model.utils.OperationHandler;
 import view.gui.utils.Constraints;
 
-public class MainViewController implements Initializable{	
+public class MainViewController implements Initializable,Constants {	
 	@FXML private AnchorPane anchorPane;
 	@FXML private HBox hbox;
 	
@@ -136,15 +136,15 @@ public class MainViewController implements Initializable{
 	
 	public void handleKeyEvent(KeyEvent event) throws ScriptException {
 		if(!OperationHandler.lockInput) {
-			if (Constants.SQRT_COMB.match(event)) 
+			if (SQRT_COMB.match(event)) 
 				OperationHandler.handleOperations("√",lb1,lb2,lb3);
-			else if (Constants.PLUS_COMB.match(event)) 
+			else if (PLUS_COMB.match(event)) 
 				OperationHandler.handleOperations("+",lb1,lb2,lb3);
-			else if (Constants.MOD_COMB.match(event)) 
+			else if (MOD_COMB.match(event)) 
 				OperationHandler.handleOperations("%",lb1,lb2,lb3);
-			else if (Constants.MULT_COMB.match(event)) 
+			else if (MULT_COMB.match(event)) 
 				OperationHandler.handleOperations("*",lb1,lb2,lb3);
-			else if (event.getText().matches(Constants.REGEX2) && event.getText().length() > 0) 
+			else if (event.getText().matches(REGEX2) && event.getText().length() > 0) 
 				InputHandler.handleNumberAndPoints(event.getText(),lb1,lb2);
 			else {
 				switch(event.getCode()) {

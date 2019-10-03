@@ -8,7 +8,7 @@ import javax.script.ScriptException;
 
 import javafx.scene.control.Label;
 
-public class OperationHandler {
+public class OperationHandler implements Constants {
 
 	public static boolean operationInProgress;
 	public static boolean lockInput;
@@ -21,7 +21,7 @@ public class OperationHandler {
 		char lastOperand;
 
 		if (currentOperand.matches("\\d*[\\.]")) {
-			currentOperand = Constants.BCKSP_FUNC.apply(currentOperand);
+			currentOperand = BCKSP_FUNC.apply(currentOperand);
 			lb1.setText(currentOperand);
 		}
 		try {

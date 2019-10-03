@@ -75,7 +75,7 @@
                   <Font name="Consolas" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="lb2" accessibleRole="TEXT_AREA" alignment="CENTER_RIGHT" ellipsisString="‹" layoutX="7.0" layoutY="29.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="284.0" style="-fx-font-size: 13pt; -fx-font-family: Consolas;" textFill="WHITE" textOverrun="LEADING_ELLIPSIS" AnchorPane.bottomAnchor="283.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="29.0">
+            <Label fx:id="lb2" accessibleRole="TEXT_AREA" alignment="CENTER_RIGHT" ellipsisString="‹" layoutX="7.0" layoutY="29.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="284.0" styleClass="label3" textFill="WHITE" textOverrun="LEADING_ELLIPSIS" AnchorPane.bottomAnchor="283.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="29.0">
                <font>
                   <Font name="Consolas" size="15.0" />
                </font>
@@ -101,7 +101,7 @@
             </HBox>
             <HBox fx:id="hbox" alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="300.0" AnchorPane.bottomAnchor="326.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" onMouseClicked="#minimizeApplication" prefHeight="45.0" prefWidth="30.0" styleClass="label4">
+                  <Label alignment="CENTER" onMouseClicked="#minimizeApplication" prefHeight="45.0" prefWidth="30.0" styleClass="minimize-button">
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" glyphName="MINUS" size="1.2em">
                            <cursor>
@@ -118,7 +118,7 @@
                         <FontAwesomeIcon fill="WHITE" glyphName="EXPAND" size="1.2em" />
                      </graphic>
                   </Label>
-                  <Label alignment="CENTER" onMouseClicked="#closeApplication" prefHeight="45.0" prefWidth="30.0" styleClass="label3">
+                  <Label alignment="CENTER" onMouseClicked="#closeApplication" prefHeight="45.0" prefWidth="30.0" styleClass="close-button">
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" size="1.2em">
                            <cursor>
