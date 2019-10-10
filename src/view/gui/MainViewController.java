@@ -71,7 +71,7 @@ public class MainViewController implements Initializable,Constants {
 		InputHandler.isOverridible = true;
 	}
 	
-	public void handleButtonAction(ActionEvent event) throws ScriptException {
+	@FXML private void handleButtonAction(ActionEvent event) throws ScriptException {
 		Button eventBT = (Button)event.getSource();
 		if(!OperationHandler.lockInput) {
 			switch(eventBT.getId()) {
@@ -134,7 +134,7 @@ public class MainViewController implements Initializable,Constants {
 		}
 	}
 	
-	public void handleKeyEvent(KeyEvent event) throws ScriptException {
+	private void handleKeyEvent(KeyEvent event) throws ScriptException {
 		if(!OperationHandler.lockInput) {
 			if (SQRT_COMB.match(event)) 
 				OperationHandler.handleOperations("√",lb1,lb2,lb3);
@@ -144,8 +144,6 @@ public class MainViewController implements Initializable,Constants {
 				OperationHandler.handleOperations("%",lb1,lb2,lb3);
 			else if (MULT_COMB.match(event)) 
 				OperationHandler.handleOperations("*",lb1,lb2,lb3);
-			else if (event.getText().matches(REGEX2) && event.getText().length() > 0) 
-				InputHandler.handleNumberAndPoints(event.getText(),lb1,lb2);
 			else {
 				switch(event.getCode()) {
 					case BACK_SPACE:
@@ -162,6 +160,8 @@ public class MainViewController implements Initializable,Constants {
 					case EQUALS:
 						OperationHandler.handleEquals(lb1,lb2,lb3);
 						break;
+					default:
+						InputHandler.handleNumberAndPoints(event.getText(),lb1,lb2);
 				}
 			}
 		} else Toolkit.getDefaultToolkit().beep();
@@ -187,11 +187,11 @@ public class MainViewController implements Initializable,Constants {
 		});
 	}
 	
-	public void closeApplication() {
+	@FXML private void closeApplication() {
 		System.exit(0);
 	}
 	
-	public void minimizeApplication(MouseEvent event) {
+	@FXML private void minimizeApplication(MouseEvent event) {
 		((Stage)((Label)event.getSource()).getScene().getWindow()).setIconified(true);
 	}
 }

@@ -13,5 +13,4 @@ public interface Constants {
 	KeyCombination SQRT_COMB = new KeyCodeCombination(KeyCode.DIGIT2,KeyCodeCombination.SHIFT_DOWN);
 	Function<String,String> BCKSP_FUNC = p -> new StringBuilder(p).deleteCharAt(p.length()-1).toString();
 	String REGEX1 = "(\\-)?\\d*([\\.]\\d*)?([E](\\-)?\\d*)?";
-	String REGEX2 = "(\\d*)?(\\.)?";
 }
