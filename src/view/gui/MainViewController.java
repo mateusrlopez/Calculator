@@ -71,7 +71,7 @@ public class MainViewController implements Initializable,Constants {
 		InputHandler.isOverridible = true;
 	}
 	
-	@FXML private void handleButtonAction(ActionEvent event) throws ScriptException {
+	@FXML private void handleButtonAction(ActionEvent event){
 		Button eventBT = (Button)event.getSource();
 		if(!OperationHandler.lockInput) {
 			switch(eventBT.getId()) {
@@ -134,7 +134,7 @@ public class MainViewController implements Initializable,Constants {
 		}
 	}
 	
-	private void handleKeyEvent(KeyEvent event) throws ScriptException {
+	private void handleKeyEvent(KeyEvent event){
 		if(!OperationHandler.lockInput) {
 			if (SQRT_COMB.match(event)) 
 				OperationHandler.handleOperations("√",lb1,lb2,lb3);
@@ -168,13 +168,7 @@ public class MainViewController implements Initializable,Constants {
 	}
 	
 	public void stageSetters(Stage stage,Scene scene) {		
-		scene.setOnKeyPressed(event -> {
-			try {
-				handleKeyEvent(event);
-			} catch (ScriptException e) {
-				e.printStackTrace();
-			}
-		});
+		scene.setOnKeyPressed(event -> handleKeyEvent(event));
 		
 		hbox.setOnMousePressed(event -> {
 			xOffset = event.getSceneX();

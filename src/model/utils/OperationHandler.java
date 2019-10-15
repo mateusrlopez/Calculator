@@ -16,7 +16,7 @@ public class OperationHandler implements Constants {
 	private static String result;
 	private static String temporaryResult;
 	
-	public static void handleOperations(String op, Label lb1, Label lb2, Label lb3) throws ScriptException {
+	public static void handleOperations(String op, Label lb1, Label lb2, Label lb3){
 		String currentOperand = lb1.getText();
 		char lastOperand;
 
@@ -74,10 +74,12 @@ public class OperationHandler implements Constants {
 			lb1.setText("");
 			lb3.setText(e.getMessage());
 			lockInput = true;
+		} catch(ScriptException e) {
+			e.printStackTrace();
 		}
 	}
 	
-	public static void handleEquals(Label lb1, Label lb2, Label lb3) throws ScriptException {
+	public static void handleEquals(Label lb1, Label lb2, Label lb3){
 		if (lb2.getText().equals("")) 
 			InputHandler.isOverridible = true;
 		else {
@@ -100,6 +102,8 @@ public class OperationHandler implements Constants {
 				lb1.setText("");
 				lb3.setText(e.getMessage());
 				lockInput = true;
+			} catch(ScriptException e) {
+				e.printStackTrace();
 			}
 		}
 	}
