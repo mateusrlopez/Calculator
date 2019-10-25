@@ -4,8 +4,6 @@ import java.awt.Toolkit;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.script.ScriptException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -69,6 +67,8 @@ public class MainViewController implements Initializable,Constants {
 		Constraints.setLabelResizable(lb1);
 		Constraints.setLabelNonNull(lb1);
 		InputHandler.isOverridible = true;
+		OperationHandler.setLabels(lb1, lb2, lb3);
+		InputHandler.setLabels(lb1, lb2);
 	}
 	
 	@FXML private void handleButtonAction(ActionEvent event){
@@ -76,12 +76,12 @@ public class MainViewController implements Initializable,Constants {
 		if(!OperationHandler.lockInput) {
 			switch(eventBT.getId()) {
 				case "btBacksp":
-					InputHandler.handleBackspace(lb1);
+					InputHandler.handleBackspace();
 					break;
 				case "btClearInput":
 					lb1.setText("0");
 					if(OperationHandler.specialOperationInProgress) {
-						InputHandler.clearSpecialOperation(lb2);
+						InputHandler.clearSpecialOperation();
 						OperationHandler.specialOperationInProgress = false;
 					}
 					InputHandler.isOverridible = true;
@@ -94,30 +94,32 @@ public class MainViewController implements Initializable,Constants {
 					InputHandler.isOverridible = true;
 					break;
 				case "btReciproc":
-					OperationHandler.handleOperations("Reciproc",lb1,lb2,lb3);
+					OperationHandler.handleOperations("Reciproc",true);
 					break;
 				case "btNegate":
-					InputHandler.handleNegate(lb1);
+					InputHandler.handleNegate();
 					break;
 				case "btMult":
-					OperationHandler.handleOperations("*",lb1,lb2,lb3);
+					OperationHandler.handleOperations("*",false);
 					break;
 				case "btDiv":
-					OperationHandler.handleOperations("/",lb1,lb2,lb3);
+					OperationHandler.handleOperations("/",false);
 					break;
+				case "btPercentage":
 				case "btSubt":
 				case "btSoma":
+					OperationHandler.handleOperations(eventBT.getText(),false);
+					break;
 				case "btSquare":
 				case "btCube":
 				case "btSqRoot":
-				case "btPercentage":
-					OperationHandler.handleOperations(eventBT.getText(),lb1,lb2,lb3);
+					OperationHandler.handleOperations(eventBT.getText(),true);
 					break;
 				case "btEqual":
-					OperationHandler.handleEquals(lb1,lb2,lb3);
+					OperationHandler.handleEquals();
 					break;
 				default:
-					InputHandler.handleNumberAndPoints(eventBT.getText(),lb1,lb2);
+					InputHandler.handleNumberAndPoints(eventBT.getText());
 					break;
 			} 
 		} else {
@@ -137,17 +139,17 @@ public class MainViewController implements Initializable,Constants {
 	private void handleKeyEvent(KeyEvent event){
 		if(!OperationHandler.lockInput) {
 			if (SQRT_COMB.match(event)) 
-				OperationHandler.handleOperations("√",lb1,lb2,lb3);
+				OperationHandler.handleOperations("√",true);
 			else if (PLUS_COMB.match(event)) 
-				OperationHandler.handleOperations("+",lb1,lb2,lb3);
+				OperationHandler.handleOperations("+",false);
 			else if (MOD_COMB.match(event)) 
-				OperationHandler.handleOperations("%",lb1,lb2,lb3);
+				OperationHandler.handleOperations("%",true);
 			else if (MULT_COMB.match(event)) 
-				OperationHandler.handleOperations("*",lb1,lb2,lb3);
+				OperationHandler.handleOperations("*",false);
 			else {
 				switch(event.getCode()) {
 					case BACK_SPACE:
-						InputHandler.handleBackspace(lb1);
+						InputHandler.handleBackspace();
 						break;
 					case UNDEFINED:
 					case ADD:
@@ -155,13 +157,14 @@ public class MainViewController implements Initializable,Constants {
 					case DIVIDE:
 					case MULTIPLY:
 					case SUBTRACT:
-						OperationHandler.handleOperations(event.getText(),lb1,lb2,lb3);
+						OperationHandler.handleOperations(event.getText(),false);
 						break;
 					case EQUALS:
-						OperationHandler.handleEquals(lb1,lb2,lb3);
+						OperationHandler.handleEquals();
 						break;
 					default:
-						InputHandler.handleNumberAndPoints(event.getText(),lb1,lb2);
+						if(!event.getText().equals(""))
+							InputHandler.handleNumberAndPoints(event.getText());
 				}
 			}
 		} else Toolkit.getDefaultToolkit().beep();
