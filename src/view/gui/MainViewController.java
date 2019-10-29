@@ -21,47 +21,78 @@ import model.utils.OperationHandler;
 import view.gui.utils.Constraints;
 
 public class MainViewController implements Initializable,Constants {	
-	@FXML private AnchorPane anchorPane;
-	@FXML private HBox hbox;
+	@FXML 
+	private AnchorPane anchorPane;
+	@FXML 
+	private HBox hbox;
 	
-	@FXML private Button btN1;
-	@FXML private Button btN2;
-	@FXML private Button btN3;
-	@FXML private Button btN4;
-	@FXML private Button btN5;
-	@FXML private Button btN6;
-	@FXML private Button btN7;
-	@FXML private Button btN8;
-	@FXML private Button btN9;
-	@FXML private Button btN0;
+	@FXML
+	private Button btN1;
+	@FXML 
+	private Button btN2;
+	@FXML
+	private Button btN3;
+	@FXML 
+	private Button btN4;
+	@FXML
+	private Button btN5;
+	@FXML
+	private Button btN6;
+	@FXML
+	private Button btN7;
+	@FXML 
+	private Button btN8;
+	@FXML
+	private Button btN9;
+	@FXML
+	private Button btN0;
 	
-	@FXML private Button btSoma;
-	@FXML private Button btSubt;
-	@FXML private Button btMult;
-	@FXML private Button btDiv;
-	@FXML private Button btPercentage;
+	@FXML
+	private Button btSoma;
+	@FXML
+	private Button btSubt;
+	@FXML
+	private Button btMult;
+	@FXML 
+	private Button btDiv;
+	@FXML
+	private Button btPercentage;
 	
-	@FXML private Button btSqRoot;
-	@FXML private Button btReciproc;
-	@FXML private Button btSquare;
-	@FXML private Button btCube;
+	@FXML
+	private Button btSqRoot;
+	@FXML
+	private Button btReciproc;
+	@FXML
+	private Button btSquare;
+	@FXML
+	private Button btCube;
 	
-	@FXML private Button btEqual;
-	@FXML private Button btClear;
-	@FXML private Button btClearInput;
+	@FXML 
+	private Button btEqual;
+	@FXML 
+	private Button btClear;
+	@FXML 
+	private Button btClearInput;
 
-	@FXML private Button btNegate;
-	@FXML private Button btBacksp;
-	@FXML private Button btPoint;
+	@FXML 
+	private Button btNegate;
+	@FXML
+	private Button btBacksp;
+	@FXML
+	private Button btPoint;
 	
-	@FXML private Label lb1;
-	@FXML private Label lb2;
-	@FXML private Label lb3;
+	@FXML 
+	private Label lb1;
+	@FXML 
+	private Label lb2;
+	@FXML 
+	private Label lb3;
 	
 	private double xOffset = 0;
 	private double yOffset = 0;
 
-	@Override public void initialize(URL url, ResourceBundle rb) {
+	@Override 
+	public void initialize(URL url, ResourceBundle rb) {
 		Constraints.setLabelDouble(lb1);
 		Constraints.setLabelMaxLength(lb1,20);
 		Constraints.setLabelResizable(lb1);
@@ -71,7 +102,8 @@ public class MainViewController implements Initializable,Constants {
 		InputHandler.setLabels(lb1, lb2);
 	}
 	
-	@FXML private void handleButtonAction(ActionEvent event){
+	@FXML 
+	private void handleButtonAction(ActionEvent event){
 		Button eventBT = (Button)event.getSource();
 		if(!OperationHandler.lockInput) {
 			switch(eventBT.getId()) {
@@ -184,11 +216,13 @@ public class MainViewController implements Initializable,Constants {
 		});
 	}
 	
-	@FXML private void closeApplication() {
+	@FXML 
+	private void closeApplication() {
 		System.exit(0);
 	}
 	
-	@FXML private void minimizeApplication(MouseEvent event) {
+	@FXML 
+	private void minimizeApplication(MouseEvent event) {
 		((Stage)((Label)event.getSource()).getScene().getWindow()).setIconified(true);
 	}
 }

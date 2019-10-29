@@ -12,7 +12,8 @@ import javafx.stage.StageStyle;
 import view.gui.MainViewController;
 
 public class Main extends Application {	
-	@Override public void start (Stage stage) {
+	@Override 
+	public void start (Stage stage) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/gui/MainCalculator.fxml"));
 			Parent parent = (Parent)loader.load();
