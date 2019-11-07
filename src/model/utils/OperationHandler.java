@@ -29,23 +29,15 @@ public class OperationHandler implements Constants {
 		}
 		try {
 			if(special) {
-				if (op.equals("Reciproc")) {
-					if(!specialOperationInProgress) temporaryResult = processOperation("1/"+lb1.getText());
-					else temporaryResult = processOperation("1/"+temporaryResult);
-					handleSpecialOperation("reciproc");
-				} else if (op.equals("√")) {
-					if(!specialOperationInProgress) temporaryResult = processOperation(String.format("Math.sqrt(%s)",lb1.getText()));
-					else temporaryResult = processOperation(String.format("Math.sqrt(%s)",temporaryResult));
-					handleSpecialOperation("sqrt");
-				} else if (op.equals("x²")) {
-					if(!specialOperationInProgress) temporaryResult = processOperation(String.format("Math.pow(%s,2)",lb1.getText()));
-					else temporaryResult = processOperation(String.format("Math.pow(%s,2)",temporaryResult));
-					handleSpecialOperation("square");
-				} else {
-					if(!specialOperationInProgress) temporaryResult = processOperation(String.format("Math.pow(%s,3)",lb1.getText()));
-					else temporaryResult = processOperation(String.format("Math.pow(%s,3)",temporaryResult));
-					handleSpecialOperation("cube");
-				}
+				if (op.equals("Reciproc"))
+					temporaryResult = processOperation(String.format("1/%s",(specialOperationInProgress)?temporaryResult:currentOperand));
+				else if (op.equals("√"))
+					temporaryResult = processOperation(String.format("Math.sqrt(%s)",(specialOperationInProgress)?temporaryResult:currentOperand));
+				else if (op.equals("x²"))
+					temporaryResult = processOperation(String.format("Math.pow(%s,2)",(specialOperationInProgress)?temporaryResult:currentOperand));
+				else 
+					temporaryResult = processOperation(String.format("Math.pow(%s,3)",(specialOperationInProgress)?temporaryResult:currentOperand));
+				handleSpecialOperation(SPECIALOP.get(op));
 			} else {
 				if (operationInProgress && InputHandler.isOverridible && !specialOperationInProgress) 
 					lb2.setText(lb2.getText().substring(0, lb2.getText().length() - 1) + op);
@@ -117,7 +109,7 @@ public class OperationHandler implements Constants {
 		ScriptEngineManager manager = new ScriptEngineManager();
 		ScriptEngine engine = manager.getEngineByName("javascript");
 		Object result = engine.eval(operation);
-		if (!result.toString().matches(Constants.REGEX1))
+		if (!result.toString().matches(REGEX1))
 			throw new OperationException("Operação inválida");
 		return handleResultString(result.toString());
 	}

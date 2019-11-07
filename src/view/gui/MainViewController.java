@@ -107,8 +107,12 @@ public class MainViewController implements Initializable,Constants {
 		Button eventBT = (Button)event.getSource();
 		if(!OperationHandler.lockInput) {
 			switch(eventBT.getId()) {
-				case "btBacksp":
-					InputHandler.handleBackspace();
+				case "btClear":
+					lb1.setText("0");
+					lb2.setText("");
+					OperationHandler.operationInProgress = false;
+					OperationHandler.specialOperationInProgress = false;
+					InputHandler.isOverridible = true;
 					break;
 				case "btClearInput":
 					lb1.setText("0");
@@ -117,25 +121,6 @@ public class MainViewController implements Initializable,Constants {
 						OperationHandler.specialOperationInProgress = false;
 					}
 					InputHandler.isOverridible = true;
-					break;
-				case "btClear":
-					lb1.setText("0");
-					lb2.setText("");
-					OperationHandler.operationInProgress = false;
-					OperationHandler.specialOperationInProgress = false;
-					InputHandler.isOverridible = true;
-					break;
-				case "btReciproc":
-					OperationHandler.handleOperations("Reciproc",true);
-					break;
-				case "btNegate":
-					InputHandler.handleNegate();
-					break;
-				case "btMult":
-					OperationHandler.handleOperations("*",false);
-					break;
-				case "btDiv":
-					OperationHandler.handleOperations("/",false);
 					break;
 				case "btPercentage":
 				case "btSubt":
@@ -146,6 +131,21 @@ public class MainViewController implements Initializable,Constants {
 				case "btCube":
 				case "btSqRoot":
 					OperationHandler.handleOperations(eventBT.getText(),true);
+					break;
+				case "btMult":
+					OperationHandler.handleOperations("*",false);
+					break;
+				case "btDiv":
+					OperationHandler.handleOperations("/",false);
+					break;
+				case "btReciproc":
+					OperationHandler.handleOperations("Reciproc",true);
+					break;
+				case "btBacksp":
+					InputHandler.handleBackspace();
+					break;
+				case "btNegate":
+					InputHandler.handleNegate();
 					break;
 				case "btEqual":
 					OperationHandler.handleEquals();
