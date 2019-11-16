@@ -24,7 +24,7 @@ public class OperationHandler implements Constants {
 		char lastOperand;
 
 		if (currentOperand.matches("\\d*[\\.]")) {
-			currentOperand = BCKSP_FUNC.apply(currentOperand);
+			currentOperand = Backsp.apply(currentOperand);
 			lb1.setText(currentOperand);
 		}
 		try {
@@ -37,7 +37,7 @@ public class OperationHandler implements Constants {
 					temporaryResult = processOperation(String.format("Math.pow(%s,2)",(specialOperationInProgress)?temporaryResult:currentOperand));
 				else 
 					temporaryResult = processOperation(String.format("Math.pow(%s,3)",(specialOperationInProgress)?temporaryResult:currentOperand));
-				handleSpecialOperation(SPECIALOP.get(op));
+				handleSpecialOperation(SpecialOP.get(op));
 			} else {
 				if (operationInProgress && InputHandler.isOverridible && !specialOperationInProgress) 
 					lb2.setText(lb2.getText().substring(0, lb2.getText().length() - 1) + op);
@@ -109,7 +109,7 @@ public class OperationHandler implements Constants {
 		ScriptEngineManager manager = new ScriptEngineManager();
 		ScriptEngine engine = manager.getEngineByName("javascript");
 		Object result = engine.eval(operation);
-		if (!result.toString().matches(REGEX1))
+		if (!result.toString().matches(Regex1))
 			throw new OperationException("Operação inválida");
 		return handleResultString(result.toString());
 	}

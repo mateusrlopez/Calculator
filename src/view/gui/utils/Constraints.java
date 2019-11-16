@@ -17,7 +17,7 @@ public class Constraints {
 
 	public static void setLabelDouble(Label label) {
 		label.textProperty().addListener((obs, oldValue, newValue) -> {
-			if (newValue != null && !newValue.matches(Constants.REGEX1)) 
+			if (newValue != null && !newValue.matches(Constants.Regex1)) 
 				label.setText(oldValue);
 		});
 	}	

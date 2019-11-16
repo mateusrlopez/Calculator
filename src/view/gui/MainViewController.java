@@ -170,13 +170,13 @@ public class MainViewController implements Initializable,Constants {
 	
 	private void handleKeyEvent(KeyEvent event){
 		if(!OperationHandler.lockInput) {
-			if (SQRT_COMB.match(event)) 
+			if (SqrtComb.match(event)) 
 				OperationHandler.handleOperations("√",true);
-			else if (PLUS_COMB.match(event)) 
+			else if (PlusComb.match(event)) 
 				OperationHandler.handleOperations("+",false);
-			else if (MOD_COMB.match(event)) 
+			else if (ModComb.match(event)) 
 				OperationHandler.handleOperations("%",true);
-			else if (MULT_COMB.match(event)) 
+			else if (MultComb.match(event)) 
 				OperationHandler.handleOperations("*",false);
 			else {
 				switch(event.getCode()) {

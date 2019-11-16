@@ -12,7 +12,7 @@ public class InputHandler implements Constants {
 	
 	public static void handleBackspace() {
 		if(lb1.getText().length() > 0 && !isOverridible) {
-			String newTxt = BCKSP_FUNC.apply(lb1.getText());
+			String newTxt = Backsp.apply(lb1.getText());
 			if(newTxt.matches("([\\-])?")) {
 				lb1.setText("0");
 				isOverridible = true;
