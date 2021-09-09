@@ -6,8 +6,9 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 function createWindow() {
   let window = new BrowserWindow({
-    width: 600,
-    height: 800,
+    width: 420,
+    height: 630,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

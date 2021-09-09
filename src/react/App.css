@@ -1,0 +1,115 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.display {
+  padding: 0px 12px;
+  height: 160px;
+  font-size: 6em;
+  font-weight: 600;
+  line-height: 130px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.button-container {
+  height: 460px;
+  display: grid;
+  padding: 5px 5px;
+  grid-template-areas: 'k-clear k-clear-current k-signal k-divide'
+                       'k-7     k-8             k-9      k-multiply'
+                       'k-4     k-5             k-6      k-subtract'
+                       'k-1     k-2             k-3      k-add'
+                       'k-0     k-0             k-dot    k-equal';
+  grid-gap: 5px;
+}
+
+.button-container button {
+  font-size: 1.85em;
+  outline: none;
+}
+
+.key-clear {
+  grid-area: k-clear;
+}
+
+.key-clear-current {
+  grid-area: k-clear-current;
+}
+
+.key-signal {
+  grid-area: k-signal;
+}
+
+.key-divide {
+  grid-area: k-divide;
+}
+
+.key-multiply {
+  grid-area: k-multiply;
+}
+
+.key-subtract {
+  grid-area: k-subtract;
+}
+
+.key-add {
+  grid-area: k-add;
+}
+
+.key-equal {
+  grid-area: k-equal;
+}
+
+.key-dot {
+  grid-area: k-dot;
+}
+
+.key-9 {
+  grid-area: k-9;
+}
+
+.key-8 {
+  grid-area: k-8;
+}
+
+.key-7 {
+  grid-area: k-7;
+}
+
+.key-6 {
+  grid-area: k-6;
+}
+
+.key-5 {
+  grid-area: k-5;
+}
+
+.key-4 {
+  grid-area: k-4;
+}
+
+.key-3 {
+  grid-area: k-3;
+}
+
+.key-2 {
+  grid-area: k-2;
+}
+
+.key-1 {
+  grid-area: k-1;
+}
+
+.key-0 {
+  grid-area: k-0;
+}

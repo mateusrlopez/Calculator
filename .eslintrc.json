@@ -29,7 +29,7 @@
     "class-methods-use-this": "off",
     "prettier/prettier": "error",
     "react/prop-types": "off",
-    "react/prefer-stateless-function": "off",
+    "react/button-has-type": "off",
     "import-helpers/order-imports": [
       "warn",
       {
@@ -60,6 +60,7 @@
     ],
     "import/no-extraneous-dependencies": "off",
     "no-use-before-define": "off",
+    "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/no-use-before-define": "error",
     "react/jsx-filename-extension": [
       "warn",

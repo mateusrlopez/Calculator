@@ -37,7 +37,7 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        test: /\.s[ac]ss$/,
+        test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
       {
